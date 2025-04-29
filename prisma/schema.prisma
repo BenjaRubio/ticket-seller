@@ -1,0 +1,42 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/app/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum EventStatus {
+  DRAFT
+  ACTIVE
+}
+
+model Event {
+  id String @default(cuid()) @id
+  title String
+  description String
+  date DateTime
+  price Int
+  initialStock Int
+  tickets Ticket[]
+  status EventStatus @default(DRAFT)
+  createdAt DateTime @default(now())
+}
+
+model Ticket {
+  id String @default(cuid()) @id
+  eventId String
+  event Event @relation(fields: [eventId], references: [id])
+  buyerName String
+  buyerLastName String
+  buyerEmail String
+  createdAt DateTime @default(now())
+}
