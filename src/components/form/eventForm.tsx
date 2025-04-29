@@ -9,10 +9,10 @@ import { Form } from "@/components/ui/form"
 import { FormInputField } from './formInputField';
 import { Input } from '../ui/input';
 import { Textarea } from "@/components/ui/textarea";
-import { Toaster } from "@/components/ui/toaster"
+import { Toaster } from "@/components/ui/toaster";
 
 import { IEvent } from '@/app/api/events/events.interface';
-import { useToast } from "@/hooks/use-toast"
+import { useToast } from "@/hooks/use-toast";
 
 const eventSchema = z.object({
   title: z.string().min(1, { message: 'El título es requerido' }),
@@ -42,23 +42,29 @@ export const EventForm = (props: Props) => {
   });
 
   const onSubmit = async (data: z.infer<typeof eventSchema>) => {
-    let toastMsg = "Error al crear el evento";
-    let variant = "destructive";
+    let toastTitle = "Evento creado correctamente";
+    let toastDescription = data.title;
+    let variant = "default";
+
     await fetch(
       '/api/events',
       {
         method: 'POST',
         body: JSON.stringify(data),
       }
-    ).then(response => {
-      if (response.ok) {
-        toastMsg = "Evento creado correctamente";
-        variant = "default";
+    )
+    .then(response => response.json())
+    .then(response => {
+      if (!response.ok) {
+        toastTitle = "Error al crear el evento";
+        toastDescription = response.error;
+        variant = "destructive";
       }
     });
+
     toast({
-      title: data.title,
-      description: toastMsg,
+      title: toastTitle,
+      description: toastDescription,
       variant: variant as "default" | "destructive",
     });
   };

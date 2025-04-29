@@ -1,3 +1,4 @@
+import { ITicket } from "../tickets/tickets.interface";
 
 enum EventStatus {
   DRAFT = 'DRAFT',
@@ -13,4 +14,5 @@ export interface IEvent {
   initialStock: number
   status: EventStatus
   createdAt: Date
+  tickets: ITicket[]
 }
