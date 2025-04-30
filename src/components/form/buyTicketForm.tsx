@@ -22,7 +22,7 @@ const formSchema = z.object({
 interface Props {
   eventPrice: number;
   eventId: string;
-  onClickBuyTicket: (data: IPurchaseTicket) => void;
+  onClickBuyTicket: (data: IPurchaseTicket) => Promise<void>;
 }
 
 export const BuyTicketForm = (props: Props) => {

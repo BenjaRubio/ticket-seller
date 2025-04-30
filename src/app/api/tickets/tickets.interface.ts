@@ -1,3 +1,4 @@
+import { IEvent } from "../events/events.interface"
 
 export interface ITicket {
   id: string
@@ -6,6 +7,7 @@ export interface ITicket {
   buyerLastName: string
   buyerEmail: string
   createdAt: Date
+  event: IEvent
 }
 
 export interface IPurchaseTicket {

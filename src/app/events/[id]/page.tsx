@@ -1,7 +1,6 @@
 "use server";
 
 import { EventDetailContainer } from "@/components/events/eventDetailContainer";
-import { IEvent } from "@/app/api/events/events.interface";
 
 export default async function EventPage({ params }: { params: { id: string } }) {
   const eventId = params.id;

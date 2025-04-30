@@ -10,8 +10,6 @@ import { FormInputField } from './formInputField';
 import { Input } from '../ui/input';
 import { Textarea } from "@/components/ui/textarea";
 import { Toaster } from "@/components/ui/toaster";
-
-import { IEvent } from '@/app/api/events/events.interface';
 import { useToast } from "@/hooks/use-toast";
 
 const eventSchema = z.object({
@@ -70,7 +68,7 @@ export const EventForm = (props: Props) => {
   };
 
   return (
-    <div className={className}>
+    <div className="w-full">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
           <FormInputField

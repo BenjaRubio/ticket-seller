@@ -1,5 +1,5 @@
 'use client';
-import { useState } from "react";
+
 import { EventDetailCard } from "./eventDetailCard";
 import { BuyTicketForm } from "@/components/form/buyTicketForm";
 import { IEvent } from "@/app/api/events/events.interface";
