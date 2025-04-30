@@ -20,12 +20,7 @@ const eventSchema = z.object({
   initialStock: z.coerce.number(),
 });
 
-interface Props {
-  className?: string;
-}
-
-export const EventForm = (props: Props) => {
-  const { className } = props;
+export const EventForm = () => {
   const { toast } = useToast();
 
   const form = useForm<z.infer<typeof eventSchema>>({

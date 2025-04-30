@@ -14,7 +14,6 @@ interface Props {
   name: string;
   label: string;
   description?: string;
-  errorMsg?: string;
   children: React.ReactNode;
 }
 
@@ -24,7 +23,6 @@ export const FormInputField = (props: Props) => {
     name,
     label,
     description,
-    errorMsg,
     children,
   } = props;
 
