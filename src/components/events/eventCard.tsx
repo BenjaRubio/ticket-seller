@@ -19,7 +19,7 @@ export const EventCard = (props: Props) => {
 
   return (
     <Link href={`/events/${event.id}`}>
-      <Card className="bg-background hover:bg-accent-foreground hover:text-primary-foreground">
+      <Card className="bg-background hover:bg-accent-foreground hover:text-primary-foreground max-w-[400px] min-w-[250px]">
         <CardHeader>
           <CardTitle>{event.title}</CardTitle>
           <CardDescription>{event.date.toString().split("T")[0]}</CardDescription>
