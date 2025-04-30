@@ -18,13 +18,13 @@ export default function TablePagination(props: Props) {
 
   const renderPageNumbers = () => {
     const items = [];
-    const thisPath = "/admin/tickets";
+    const currentPath = "/admin/tickets";
 
     // Previous
     items.push(
       <PaginationItem key="prev">
         <PaginationPrevious 
-          href={`${thisPath}?page=${currentPage - 1}`}
+          href={`${currentPath}?page=${currentPage - 1}`}
           className={currentPage <= 1 ? "pointer-events-none opacity-50" : ""}
         >
           Anterior
@@ -35,7 +35,7 @@ export default function TablePagination(props: Props) {
     // First page
     items.push(
       <PaginationItem key={1}>
-        <PaginationLink href={`${thisPath}?page=1`} isActive={currentPage === 1}>
+        <PaginationLink href={`${currentPath}?page=1`} isActive={currentPage === 1}>
           1
           </PaginationLink>
         </PaginationItem>
@@ -54,7 +54,7 @@ export default function TablePagination(props: Props) {
     if (currentPage !== 1 && currentPage !== totalPages) {
       items.push(
         <PaginationItem key={currentPage}>
-          <PaginationLink href={`${thisPath}?page=${currentPage}`} isActive>
+          <PaginationLink href={`${currentPath}?page=${currentPage}`} isActive>
             {currentPage}
           </PaginationLink>
         </PaginationItem>
@@ -75,7 +75,7 @@ export default function TablePagination(props: Props) {
       items.push(
         <PaginationItem key={totalPages}>
           <PaginationLink 
-            href={`${thisPath}?page=${totalPages}`}
+            href={`${currentPath}?page=${totalPages}`}
             isActive={currentPage === totalPages}
           >
             {totalPages}
@@ -88,7 +88,7 @@ export default function TablePagination(props: Props) {
     items.push(
       <PaginationItem key="next">
         <PaginationNext 
-          href={`${thisPath}?page=${currentPage + 1}`}
+          href={`${currentPath}?page=${currentPage + 1}`}
           className={currentPage >= totalPages ? "pointer-events-none opacity-50" : ""}
         >
           Siguiente
