@@ -1,4 +1,4 @@
-For local development:
+#For local development:
 
 ##1
 
@@ -17,3 +17,5 @@ Run the application:
 ```bash
 npm run dev
 ```
+
+# Suposiciones

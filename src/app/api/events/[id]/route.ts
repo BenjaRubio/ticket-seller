@@ -8,8 +8,8 @@ export async function GET(
   const eventId = params.id;
   try {
     const event = await getEventById(eventId);
-    return NextResponse.json(event);
+    return NextResponse.json({ ok: true, data: event });
   } catch (error) {
-    return NextResponse.json({ error: 'Error al obtener los eventos' }, { status: 500 });
+    return NextResponse.json({ ok: false, error: 'Error al obtener los eventos' }, { status: 500 });
   }
 }
