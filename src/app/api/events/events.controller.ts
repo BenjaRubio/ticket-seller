@@ -29,6 +29,10 @@ export const createEvent = async (event: IEvent) => {
 }
 
 export const getEventById = async (id: string, includeTickets: boolean = true) => {
+  if (process.env.NODE_ENV === 'production' && process.env.NEXT_PHASE === 'phase-production-build') {
+    return { id, title: 'Build-time placeholder' };
+  }
+  
   try {
     const event = await prisma.event.findUnique({
       where: { id },
