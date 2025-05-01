@@ -8,22 +8,12 @@ import { Toaster } from "@/components/ui/toaster";
 import { useToast } from "@/hooks/use-toast";
 
 interface Props {
-  event: IEvent | null;
+  event: IEvent;
 }
 
 export const EventDetailContainer = (props: Props) => {
   const { event } = props;
   const { toast } = useToast();
-
-  if (!event) {
-   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-foreground">
-      <h1 className="text-4xl font-bold text-primary-foreground">
-        No se pudo cargar el evento
-      </h1>
-    </div>
-   );
-  }
 
   const onClickBuyTicket = async (data: IPurchaseTicket) => {
     let toastTitle = "Compra realizada correctamente";

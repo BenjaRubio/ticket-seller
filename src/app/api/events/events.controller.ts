@@ -15,7 +15,7 @@ export const createEvent = async (event: IEvent) => {
       }
     },
   });
-  return newEvent;
+  return newEvent as IEvent;
 }
 
 export const getEventById = async (id: string, includeTickets: boolean = true) => {
