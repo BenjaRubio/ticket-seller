@@ -2,6 +2,8 @@ import { NextResponse } from 'next/server';
 import { bulkCreateTickets, getTickets } from './tickets.controller';
 import { checkEventStock } from '../events/events.controller';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const page = searchParams.get('page') ? parseInt(searchParams.get('page')!) : 1;
