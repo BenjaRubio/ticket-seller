@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
 import { createEvent, getEvents } from './events.controller';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET() {
   try {
     const events = await getEvents();
