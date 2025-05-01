@@ -3,6 +3,10 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  experimental: {
+    instrumentationHook: true,
+    serverComponentsExternalPackages: []
+  }
 };
 
 export default nextConfig;
