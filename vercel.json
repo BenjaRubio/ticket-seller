@@ -1,8 +1,14 @@
 {
-  "builds": [
+  "buildCommand": "next build",
+  "outputDirectory": ".next",
+  "routes": [
     {
-      "src": "next.config.js",
-      "use": "@vercel/next"
+      "src": "/api/(.*)",
+      "dest": "/api/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
     }
   ]
 }
