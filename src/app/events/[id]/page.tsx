@@ -1,5 +1,3 @@
-"use server";
-
 import { EventDetailContainer } from "@/components/events/eventDetailContainer";
 import { getEventById } from "@/app/api/events/events.controller";
 import { notFound } from 'next/navigation';
