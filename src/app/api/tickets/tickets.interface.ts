@@ -1,4 +1,4 @@
-import { IEvent } from "../events/events.interface"
+import type { IEvent } from "../events/events.interface"
 
 export interface ITicket {
   id: string

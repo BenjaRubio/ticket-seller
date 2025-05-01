@@ -1,4 +1,4 @@
-import { ITicket } from "../tickets/tickets.interface";
+import type { ITicket } from "../tickets/tickets.interface";
 
 enum EventStatus {
   DRAFT = 'DRAFT',
