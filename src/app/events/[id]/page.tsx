@@ -3,6 +3,10 @@ import { notFound } from 'next/navigation';
 import { IEvent } from "@/app/api/events/events.interface";
 import { headers } from 'next/headers';
 
+export async function generateStaticParams() {
+  
+}
+
 export default async function EventPage({ params }: { params: { id: string } }) {
   const headersList = headers();
   const host = headersList.get('host') || 'localhost:3000';
